@@ -1,7 +1,8 @@
 // src/services/api.ts
-// 🚨 CAMBIADO A LA IP LOCAL PARA QUE FUNCIONE EN EL CELULAR
-// src/services/api.ts
-const API_URL = "http://10.0.109.46:5077/api"; 
+
+// 🚨 Usamos la variable de entorno (para Cloudflare) o el localhost por defecto
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5077/api";
+
 async function fetchAPI(endpoint: string, options: RequestInit = {}) {
   try {
     const response = await fetch(`${API_URL}${endpoint}`, options);
